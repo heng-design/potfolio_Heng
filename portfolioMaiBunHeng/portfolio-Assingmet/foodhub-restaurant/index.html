@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FOODHUB — Exquisite Flavors, Unforgettable Moments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============ LOADER ============ -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <span class="loader-logo">FOOD<em>HUB</em></span>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="logo">FOOD<em>HUB</em></a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active" data-nav>Home</a>
+      <a href="#menu" class="nav-link" data-nav>Menu</a>
+      <a href="#reserve" class="nav-link" data-nav>Reserve</a>
+      <a href="#order" class="nav-link" data-nav>Order</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="cart-toggle" id="cartToggle" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80" alt="Fine dining restaurant table" loading="eager" />
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content" data-animate="fade-up">
+    <span class="eyebrow">FOODHUB GOURMET</span>
+    <h1 class="hero-title">Exquisite Flavors,<br>Unforgettable Moments</h1>
+    <p class="hero-sub">Hand-crafted dishes, fire-kissed flavors, and a table that feels like home — every plate tells a story worth savoring.</p>
+    <div class="hero-actions">
+      <a href="#reserve" class="btn btn-primary">Book A Table</a>
+      <a href="#menu" class="btn btn-outline">View Menu</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><span></span></div>
+</section>
+
+<!-- ============ COUNTERS ============ -->
+<section class="counters" data-animate="fade-up">
+  <div class="counter-item">
+    <span class="counter-num" data-target="18">0</span><span class="counter-suffix">+</span>
+    <p>Years of Craft</p>
+  </div>
+  <div class="counter-item">
+    <span class="counter-num" data-target="120">0</span><span class="counter-suffix">+</span>
+    <p>Signature Dishes</p>
+  </div>
+  <div class="counter-item">
+    <span class="counter-num" data-target="45">0</span><span class="counter-suffix">K+</span>
+    <p>Happy Guests</p>
+  </div>
+  <div class="counter-item">
+    <span class="counter-num" data-target="27">0</span>
+    <p>Culinary Awards</p>
+  </div>
+</section>
+
+<!-- ============ FEATURED FOOD ============ -->
+<section class="featured" id="featured">
+  <div class="section-head" data-animate="fade-up">
+    <span class="eyebrow eyebrow-dark">Chef's Selection</span>
+    <h2>Featured This Week</h2>
+  </div>
+
+  <div class="featured-grid">
+    <article class="featured-card" data-animate="fade-up" data-delay="0">
+      <div class="featured-img"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Signature Cheeseburger" loading="lazy"></div>
+      <div class="featured-body">
+        <div class="featured-top"><h3>Signature Cheeseburger</h3><span class="rating">★ 4.9</span></div>
+        <p class="price">$12.90</p>
+      </div>
+    </article>
+
+    <article class="featured-card" data-animate="fade-up" data-delay="100">
+      <div class="featured-img"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Wood-Fired Pizza" loading="lazy"></div>
+      <div class="featured-body">
+        <div class="featured-top"><h3>Wood-Fired Pizza</h3><span class="rating">★ 4.8</span></div>
+        <p class="price">$15.50</p>
+      </div>
+    </article>
+
+    <article class="featured-card" data-animate="fade-up" data-delay="200">
+      <div class="featured-img"><img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=800&q=80" alt="Creamy Pasta" loading="lazy"></div>
+      <div class="featured-body">
+        <div class="featured-top"><h3>Creamy Alfredo Pasta</h3><span class="rating">★ 4.9</span></div>
+        <p class="price">$13.75</p>
+      </div>
+    </article>
+
+    <article class="featured-card" data-animate="fade-up" data-delay="300">
+      <div class="featured-img"><img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?auto=format&fit=crop&w=800&q=80" alt="Chocolate Lava Cake" loading="lazy"></div>
+      <div class="featured-body">
+        <div class="featured-top"><h3>Chocolate Lava Cake</h3><span class="rating">★ 5.0</span></div>
+        <p class="price">$8.20</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="menu" id="menu">
+  <div class="section-head light" data-animate="fade-up">
+    <span class="eyebrow">Full Menu</span>
+    <h2>Our Exquisite Menu</h2>
+    <p class="section-sub">Every dish crafted with premium ingredients, bold technique, and a taste for the unforgettable.</p>
+  </div>
+
+  <div class="menu-toolbar" data-animate="fade-up">
+    <div class="menu-filters" id="menuFilters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="burger">Burger</button>
+      <button class="filter-btn" data-filter="pizza">Pizza</button>
+      <button class="filter-btn" data-filter="pasta">Pasta</button>
+      <button class="filter-btn" data-filter="seafood">Seafood</button>
+      <button class="filter-btn" data-filter="dessert">Dessert</button>
+      <button class="filter-btn" data-filter="drink">Drink</button>
+    </div>
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="searchInput" placeholder="Search dishes..." />
+    </div>
+  </div>
+
+  <div class="menu-grid" id="menuGrid"><!-- injected by script.js --></div>
+</section>
+
+<!-- ============ SPECIAL OFFER ============ -->
+<section class="offer" data-animate="zoom">
+  <div class="offer-inner">
+    <div class="offer-text">
+      <span class="eyebrow">Limited Time</span>
+      <h2>30% OFF Your First Order</h2>
+      <p>Use code <strong>FOODHUB30</strong> at checkout. Fresh flavors, faster savings — tonight only lasts so long.</p>
+      <a href="#menu" class="btn btn-primary">Order Now</a>
+    </div>
+    <div class="offer-badge">
+      <span>30%</span>
+      <small>OFF</small>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHEFS ============ -->
+<section class="chefs" id="chefs">
+  <div class="section-head" data-animate="fade-up">
+    <span class="eyebrow eyebrow-dark">Meet The Team</span>
+    <h2>Our Master Chefs</h2>
+  </div>
+
+  <div class="chefs-grid">
+    <article class="chef-card" data-animate="slide-right" data-delay="0">
+      <div class="chef-img"><img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=500&q=80" alt="Chef Marco Rossi" loading="lazy"></div>
+      <div class="chef-body">
+        <h3>Marco Rossi</h3>
+        <span class="chef-role">Executive Chef</span>
+        <p>15 years experience</p>
+        <div class="chef-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">i</a>
+          <a href="#" aria-label="Twitter">t</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="chef-card" data-animate="fade-up" data-delay="150">
+      <div class="chef-img"><img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?auto=format&fit=crop&w=500&q=80" alt="Chef Amara Chen" loading="lazy"></div>
+      <div class="chef-body">
+        <h3>Amara Chen</h3>
+        <span class="chef-role">Pastry Chef</span>
+        <p>10 years experience</p>
+        <div class="chef-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">i</a>
+          <a href="#" aria-label="Twitter">t</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="chef-card" data-animate="slide-left" data-delay="300">
+      <div class="chef-img"><img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=500&q=80" alt="Chef Daniel Osei" loading="lazy"></div>
+      <div class="chef-body">
+        <h3>Daniel Osei</h3>
+        <span class="chef-role">Grill Master</span>
+        <p>12 years experience</p>
+        <div class="chef-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">i</a>
+          <a href="#" aria-label="Twitter">t</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ RESERVATION ============ -->
+<section class="reserve" id="reserve">
+  <div class="reserve-media">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80" alt="Restaurant interior" loading="lazy">
+    <div class="reserve-overlay"></div>
+  </div>
+
+  <div class="reserve-form-wrap" data-animate="fade-up">
+    <span class="eyebrow">Reserve Your Table</span>
+    <h2>Book An Experience</h2>
+    <p class="section-sub">Reserve ahead and let us prepare the perfect table for your evening.</p>
+
+    <form id="reserveForm" class="reserve-form" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="resName">Full Name</label>
+          <input type="text" id="resName" name="name" placeholder="John Doe" />
+          <span class="error-msg" data-error="resName"></span>
+        </div>
+        <div class="form-group">
+          <label for="resEmail">Email</label>
+          <input type="email" id="resEmail" name="email" placeholder="john@example.com" />
+          <span class="error-msg" data-error="resEmail"></span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="resPhone">Phone</label>
+          <input type="tel" id="resPhone" name="phone" placeholder="+1 234 567 890" />
+          <span class="error-msg" data-error="resPhone"></span>
+        </div>
+        <div class="form-group">
+          <label for="resGuests">Guests</label>
+          <select id="resGuests" name="guests">
+            <option value="">Select</option>
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5+">5+ Guests</option>
+          </select>
+          <span class="error-msg" data-error="resGuests"></span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="resDate">Date</label>
+          <input type="date" id="resDate" name="date" />
+          <span class="error-msg" data-error="resDate"></span>
+        </div>
+        <div class="form-group">
+          <label for="resTime">Time</label>
+          <input type="time" id="resTime" name="time" />
+          <span class="error-msg" data-error="resTime"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="resMessage">Message (optional)</label>
+        <textarea id="resMessage" name="message" rows="3" placeholder="Special requests, allergies, occasion..."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">Book Table</button>
+      <p class="form-success" id="formSuccess">✓ Your table request has been received. We'll confirm shortly!</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews" id="reviews">
+  <div class="section-head" data-animate="fade-up">
+    <span class="eyebrow eyebrow-dark">Testimonials</span>
+    <h2>What Our Guests Say</h2>
+  </div>
+
+  <div class="review-slider" id="reviewSlider">
+    <div class="review-track" id="reviewTrack">
+      <article class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Every dish felt like it was made just for me. The lava cake alone is worth the visit. FoodHub has become our monthly ritual."</p>
+        <div class="review-person">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Sophia Turner">
+          <div><strong>Sophia Turner</strong><span>Food Blogger</span></div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Impeccable service, warm ambiance, and a menu that keeps surprising us. The reservation process was effortless too."</p>
+        <div class="review-person">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="James Carter">
+          <div><strong>James Carter</strong><span>Local Guide</span></div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"The seafood platter is out of this world. FoodHub redefined what a neighborhood restaurant can taste like."</p>
+        <div class="review-person">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Elena Moretti">
+          <div><strong>Elena Moretti</strong><span>Chef & Critic</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="review-dots" id="reviewDots"></div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="section-head light" data-animate="fade-up">
+    <span class="eyebrow">Behind The Scenes</span>
+    <h2>Our Gallery</h2>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-item" data-animate="zoom" data-delay="0"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" alt="Restaurant table setting" loading="lazy"></div>
+    <div class="gallery-item" data-animate="zoom" data-delay="80"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80" alt="Restaurant interior" loading="lazy"></div>
+    <div class="gallery-item" data-animate="zoom" data-delay="160"><img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=700&q=80" alt="Chef plating a dish" loading="lazy"></div>
+    <div class="gallery-item" data-animate="zoom" data-delay="240"><img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?auto=format&fit=crop&w=700&q=80" alt="Plated gourmet dish" loading="lazy"></div>
+    <div class="gallery-item" data-animate="zoom" data-delay="320"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=700&q=80" alt="Dining ambiance" loading="lazy"></div>
+    <div class="gallery-item" data-animate="zoom" data-delay="400"><img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=700&q=80" alt="Table full of dishes" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="footer">
+  <div class="footer-newsletter" data-animate="fade-up">
+    <div>
+      <h3>Join Our Newsletter</h3>
+      <p>Get new dishes, offers, and events straight to your inbox.</p>
+    </div>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+
+  <div class="footer-grid">
+    <div class="footer-col">
+      <a href="#home" class="logo">FOOD<em>HUB</em></a>
+      <p>A premium dining destination crafting bold, memorable flavors since 2007.</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">i</a>
+        <a href="#" aria-label="Twitter">t</a>
+        <a href="#" aria-label="YouTube">y</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Opening Hours</h4>
+      <ul class="hours-list">
+        <li><span>Mon – Fri</span><span>10:00 – 22:00</span></li>
+        <li><span>Saturday</span><span>09:00 – 23:00</span></li>
+        <li><span>Sunday</span><span>09:00 – 21:00</span></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="links-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#reserve">Reserve</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="links-list">
+        <li>128 Riverside Ave, Siem Reap</li>
+        <li>+855 12 345 678</li>
+        <li>hello@foodhub.com</li>
+      </ul>
+      <div class="map-placeholder">
+        <span>Google Map</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> FoodHub Restaurant. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ============ CART SIDEBAR ============ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Your Order</h3>
+    <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty" id="cartEmpty">Your cart is empty. Add something delicious!</p>
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-row"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+    <div class="cart-row"><span>Delivery</span><span id="cartDelivery">$0.00</span></div>
+    <div class="cart-row cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    <button class="btn btn-primary btn-block" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
+  <img src="" alt="" id="lightboxImg">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
+</div>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast"></div>
+
+<!-- ============ SCROLL TO TOP ============ -->
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>

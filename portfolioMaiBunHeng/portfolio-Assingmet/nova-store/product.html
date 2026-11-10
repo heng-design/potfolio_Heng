@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Product — Nova Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { navy: '#0F172A', brandBlue: '#2563EB', brandOrange: '#F97316', soft: '#F8FAFC' },
+        fontFamily: { sans: ['Inter', 'sans-serif'] },
+      },
+    },
+  };
+</script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-white text-slate-900 font-sans antialiased">
+
+<!-- ============ NAVBAR ============ -->
+<header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 font-extrabold text-lg tracking-tight">
+      <span class="w-8 h-8 rounded-lg bg-navy flex items-center justify-center">
+        <svg class="w-4 h-4 text-brandOrange" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </span>
+      NOVA <span class="text-brandBlue">STORE</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="shop.html" class="nav-link active text-slate-900">Shop</a>
+      <a href="index.html#categories" class="nav-link">Categories</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button id="search-btn" aria-label="Search" class="text-slate-600 hover:text-brandBlue transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+      <a href="cart.html" aria-label="Cart" class="relative text-slate-600 hover:text-brandBlue transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="cart-badge hidden absolute -top-2 -right-2 bg-brandOrange text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+      </a>
+      <button aria-label="Profile" class="hidden sm:flex text-slate-600 hover:text-brandBlue transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+      </button>
+      <button id="mobile-menu-btn" class="md:hidden text-slate-600" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-slate-100 px-6">
+    <div class="flex flex-col py-4 gap-4 text-sm font-medium text-slate-700">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="index.html#categories">Categories</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ BREADCRUMB + DETAIL ============ -->
+<section class="pt-28 pb-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <p class="text-sm text-slate-400 mb-8">
+      <a href="index.html" class="hover:text-brandBlue">Home</a> /
+      <a href="shop.html" class="hover:text-brandBlue">Shop</a> /
+      <span id="crumb-name" class="text-slate-600">Product</span>
+    </p>
+
+    <div id="product-detail" class="grid md:grid-cols-2 gap-14"></div>
+
+    <!-- Related products -->
+    <div class="mt-24">
+      <h2 class="text-2xl font-extrabold text-navy mb-8">You may also like</h2>
+      <div id="related-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-navy text-slate-400 border-t border-white/10 py-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center text-sm">
+    © 2026 Nova Store. Portfolio project — not a real store.
+  </div>
+</footer>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-navy text-white text-sm font-medium px-5 py-3 rounded-full shadow-xl z-50 flex items-center gap-2">
+  <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+  <span>Added to cart</span>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const productId = Number(params.get("id")) || PRODUCTS[0].id;
+  const product = PRODUCTS.find((p) => p.id === productId) || PRODUCTS[0];
+
+  document.title = `${product.name} — Nova Store`;
+  document.getElementById("crumb-name").textContent = product.name;
+
+  let qty = 1;
+
+  function renderDetail() {
+    document.getElementById("product-detail").innerHTML = `
+      <div class="device-mockup rounded-3xl aspect-square flex items-center justify-center relative bg-gradient-to-br ${product.gradient} overflow-hidden">
+        ${iconSvg(product.icon, "w-32 h-32 text-white/90")}
+        <img src="${productImageUrl(product, 900)}" alt="${product.name}"
+             class="absolute inset-0 w-full h-full object-cover"
+             onerror="this.style.display='none'" />
+        ${product.tag ? `<span class="absolute top-5 left-5 z-10 text-xs font-semibold bg-white/95 text-slate-900 px-3 py-1.5 rounded-full">${product.tag}</span>` : ""}
+      </div>
+      <div>
+        <p class="text-sm text-brandBlue font-semibold mb-2">${product.category}</p>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-navy mb-3">${product.name}</h1>
+        <div class="flex items-center gap-2 mb-5">
+          ${starRow(product.rating)}
+          <span class="text-sm text-slate-500">${product.rating} · 128 reviews</span>
+        </div>
+        <p class="text-3xl font-extrabold text-navy mb-6">$${product.price}</p>
+        <p class="text-slate-600 leading-relaxed mb-8 max-w-md">
+          The ${product.name} pairs premium materials with precision engineering. Designed in-house by the Nova team,
+          it's built to perform daily and look sharp doing it — backed by a 2-year warranty and free returns.
+        </p>
+
+        <div class="flex items-center gap-4 mb-8">
+          <div class="flex items-center border border-slate-200 rounded-lg">
+            <button id="qty-minus" class="qty-btn w-10 h-11 flex items-center justify-center text-lg" aria-label="Decrease quantity">−</button>
+            <span id="qty-value" class="w-10 text-center font-semibold">1</span>
+            <button id="qty-plus" class="qty-btn w-10 h-11 flex items-center justify-center text-lg" aria-label="Increase quantity">+</button>
+          </div>
+          <button id="add-to-cart-detail" class="btn-primary text-white font-semibold px-8 py-3 rounded-xl flex-1 sm:flex-none">
+            Add to Cart — $${product.price}
+          </button>
+          <button class="wishlist-btn-detail w-11 h-11 rounded-lg border border-slate-200 flex items-center justify-center hover:text-brandOrange" aria-label="Add to wishlist">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+          </button>
+        </div>
+
+        <ul class="text-sm text-slate-500 space-y-2 border-t border-slate-100 pt-6">
+          <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brandBlue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Free shipping on orders over $99</li>
+          <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brandBlue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 2-year warranty included</li>
+          <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brandBlue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 30-day free returns</li>
+        </ul>
+      </div>
+    `;
+
+    document.getElementById("qty-minus").addEventListener("click", () => {
+      qty = Math.max(1, qty - 1);
+      document.getElementById("qty-value").textContent = qty;
+    });
+    document.getElementById("qty-plus").addEventListener("click", () => {
+      qty += 1;
+      document.getElementById("qty-value").textContent = qty;
+    });
+    document.getElementById("add-to-cart-detail").addEventListener("click", () => {
+      addToCart(product.id, qty);
+    });
+    document.querySelector(".wishlist-btn-detail").addEventListener("click", (e) => {
+      e.currentTarget.classList.toggle("text-brandOrange");
+      showToast("Saved to wishlist");
+    });
+  }
+
+  function renderRelated() {
+    const related = PRODUCTS.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 4);
+    const list = related.length ? related : PRODUCTS.filter((p) => p.id !== product.id).slice(0, 4);
+    const relatedGrid = document.getElementById("related-grid");
+    relatedGrid.innerHTML = list.map(productCardHTML).join("");
+    bindProductCardEvents(relatedGrid);
+  }
+
+  renderDetail();
+  renderRelated();
+  document.getElementById("search-btn").addEventListener("click", () => (window.location.href = "shop.html"));
+</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Cart — Nova Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { navy: '#0F172A', brandBlue: '#2563EB', brandOrange: '#F97316', soft: '#F8FAFC' },
+        fontFamily: { sans: ['Inter', 'sans-serif'] },
+      },
+    },
+  };
+</script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-white text-slate-900 font-sans antialiased">
+
+<!-- ============ NAVBAR ============ -->
+<header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 font-extrabold text-lg tracking-tight">
+      <span class="w-8 h-8 rounded-lg bg-navy flex items-center justify-center">
+        <svg class="w-4 h-4 text-brandOrange" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </span>
+      NOVA <span class="text-brandBlue">STORE</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="index.html#categories" class="nav-link">Categories</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button id="search-btn" aria-label="Search" class="text-slate-600 hover:text-brandBlue transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+      <a href="cart.html" aria-label="Cart" class="relative text-brandBlue">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="cart-badge hidden absolute -top-2 -right-2 bg-brandOrange text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+      </a>
+      <button aria-label="Profile" class="hidden sm:flex text-slate-600 hover:text-brandBlue transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+      </button>
+      <button id="mobile-menu-btn" class="md:hidden text-slate-600" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-slate-100 px-6">
+    <div class="flex flex-col py-4 gap-4 text-sm font-medium text-slate-700">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="index.html#categories">Categories</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section class="pt-32 pb-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-navy mb-10">Your Cart</h1>
+
+    <div id="cart-wrapper" class="grid lg:grid-cols-[1fr_360px] gap-10 items-start">
+      <div id="cart-items" class="space-y-4"></div>
+
+      <div class="bg-soft rounded-2xl p-6 sticky top-24">
+        <h2 class="font-bold text-navy mb-5">Order Summary</h2>
+        <div class="space-y-3 text-sm text-slate-600 mb-5">
+          <div class="flex justify-between"><span>Subtotal</span><span id="sum-subtotal">$0</span></div>
+          <div class="flex justify-between"><span>Shipping</span><span id="sum-shipping">$0</span></div>
+          <div class="flex justify-between"><span>Tax (8%)</span><span id="sum-tax">$0</span></div>
+        </div>
+        <div class="flex justify-between font-bold text-navy text-lg border-t border-slate-200 pt-4 mb-6">
+          <span>Total</span><span id="sum-total">$0</span>
+        </div>
+        <button id="checkout-btn" class="btn-accent text-white font-semibold w-full py-3.5 rounded-xl">
+          Proceed to Checkout
+        </button>
+        <a href="shop.html" class="block text-center text-sm text-brandBlue font-medium mt-4 hover:underline">← Continue shopping</a>
+      </div>
+    </div>
+
+    <div id="empty-cart" class="hidden text-center py-24">
+      <p class="text-slate-400 mb-4">Your cart is empty.</p>
+      <a href="shop.html" class="btn-primary text-white font-semibold px-6 py-3 rounded-xl inline-block">Start Shopping</a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-navy text-slate-400 border-t border-white/10 py-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center text-sm">
+    © 2026 Nova Store. Portfolio project — not a real store.
+  </div>
+</footer>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-navy text-white text-sm font-medium px-5 py-3 rounded-full shadow-xl z-50 flex items-center gap-2">
+  <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+  <span>Added to cart</span>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+  function itemRowHTML(item, product) {
+    return `
+    <div class="cart-row flex items-center gap-4 bg-white border border-slate-100 rounded-2xl p-4" data-id="${product.id}">
+      <div class="w-20 h-20 shrink-0 rounded-xl bg-gradient-to-br ${product.gradient} flex items-center justify-center text-white/90 relative overflow-hidden">
+        ${iconSvg(product.icon, "w-9 h-9")}
+        <img src="${productImageUrl(product, 160)}" alt="${product.name}"
+             class="absolute inset-0 w-full h-full object-cover"
+             onerror="this.style.display='none'" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <a href="product.html?id=${product.id}" class="font-semibold text-navy hover:text-brandBlue truncate block">${product.name}</a>
+        <p class="text-sm text-slate-400">${product.category}</p>
+        <button class="remove-btn text-xs text-red-500 hover:underline mt-1" data-id="${product.id}">Remove</button>
+      </div>
+      <div class="flex items-center border border-slate-200 rounded-lg">
+        <button class="qty-btn row-minus w-8 h-9 flex items-center justify-center" data-id="${product.id}" aria-label="Decrease quantity">−</button>
+        <span class="w-8 text-center text-sm font-semibold">${item.qty}</span>
+        <button class="qty-btn row-plus w-8 h-9 flex items-center justify-center" data-id="${product.id}" aria-label="Increase quantity">+</button>
+      </div>
+      <p class="w-20 text-right font-bold text-navy">$${(product.price * item.qty).toFixed(0)}</p>
+    </div>`;
+  }
+
+  function renderCart() {
+    const cart = getCart();
+    const wrapper = document.getElementById("cart-wrapper");
+    const emptyEl = document.getElementById("empty-cart");
+    const itemsEl = document.getElementById("cart-items");
+
+    if (!cart.length) {
+      wrapper.classList.add("hidden");
+      emptyEl.classList.remove("hidden");
+      return;
+    }
+    wrapper.classList.remove("hidden");
+    emptyEl.classList.add("hidden");
+
+    itemsEl.innerHTML = cart
+      .map((item) => {
+        const product = PRODUCTS.find((p) => p.id === item.id);
+        return product ? itemRowHTML(item, product) : "";
+      })
+      .join("");
+
+    let subtotal = 0;
+    cart.forEach((item) => {
+      const product = PRODUCTS.find((p) => p.id === item.id);
+      if (product) subtotal += product.price * item.qty;
+    });
+    const shipping = subtotal > 99 || subtotal === 0 ? 0 : 9;
+    const tax = subtotal * 0.08;
+    const total = subtotal + shipping + tax;
+
+    document.getElementById("sum-subtotal").textContent = `$${subtotal.toFixed(0)}`;
+    document.getElementById("sum-shipping").textContent = shipping === 0 ? "Free" : `$${shipping}`;
+    document.getElementById("sum-tax").textContent = `$${tax.toFixed(0)}`;
+    document.getElementById("sum-total").textContent = `$${total.toFixed(0)}`;
+
+    itemsEl.querySelectorAll(".remove-btn").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        removeFromCart(Number(btn.dataset.id));
+        renderCart();
+      })
+    );
+    itemsEl.querySelectorAll(".row-minus").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        const item = getCart().find((i) => i.id === Number(btn.dataset.id));
+        if (item) updateQty(item.id, item.qty - 1);
+        renderCart();
+      })
+    );
+    itemsEl.querySelectorAll(".row-plus").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        const item = getCart().find((i) => i.id === Number(btn.dataset.id));
+        if (item) updateQty(item.id, item.qty + 1);
+        renderCart();
+      })
+    );
+  }
+
+  document.getElementById("checkout-btn").addEventListener("click", () => {
+    if (!getCart().length) return;
+    showToast("Checkout is a demo in this portfolio project");
+  });
+  document.getElementById("search-btn").addEventListener("click", () => (window.location.href = "shop.html"));
+
+  renderCart();
+</script>
+</body>
+</html>

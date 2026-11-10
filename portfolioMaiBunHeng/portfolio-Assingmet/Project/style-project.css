@@ -1,0 +1,144 @@
+@font-face {
+  font-family: "myFont";
+  src: url("../KhmerOSsiemreap.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+#project-section {
+  padding: 90px 0;
+}
+.style-project {
+  display: flex;
+  justify-content: center;
+}
+.style-project {
+  font-family: var(--display);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 56px;
+  position: relative;
+  padding-bottom: 14px;
+}
+.style-project::before {
+  content: "// projects";
+  display: block;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.style-project::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+
+.img-project {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  width: min(92%, var(--container));
+  margin: 0 auto;
+}
+
+.img1 img,
+.img2 img,
+.img3 img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.box-reviwer {
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: var(--ink-muted);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  text-align: left;
+  overflow: hidden;
+  transition:
+    transform 0.35s var(--ease),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.box-reviwer > div:not(.review):not(.img1):not(.img2):not(.img3) {
+  padding: 18px 20px 4px;
+  font-size: 15px;
+  line-height: 1.6;
+  flex: 1 1 auto;
+}
+.box-reviwer:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent2);
+  box-shadow: 0 22px 45px -20px rgba(124, 140, 255, 0.45);
+}
+
+.review {
+  margin: 6px 20px 20px;
+  height: 40px;
+  width: auto;
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  font-family: var(--mono);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+.box-reviwer:hover .review {
+  background: var(--accent2);
+  border-color: var(--accent2);
+  color: #0c1016;
+}
+
+/* item 3 in the source markup nests text/review inside .img3 - keep it visually consistent */
+.img3 {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.img3 img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+.img3 > div:not(.review) {
+  padding: 18px 20px 4px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.img3 .review {
+  margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  .img-project {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .img-project {
+    grid-template-columns: 1fr;
+  }
+}
+.font-project {
+  font-family: "myFont", "Times New Roman", serif;
+}

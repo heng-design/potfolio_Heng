@@ -1,0 +1,221 @@
+/* ============================================
+   NOVA STORE — Custom Styles
+   (Tailwind handles utility classes; this file
+   covers animations, gradients & fine details
+   Tailwind utilities can't express cleanly)
+   ============================================ */
+
+:root {
+  --navy: #0F172A;
+  --blue: #2563EB;
+  --blue-dark: #1D4ED8;
+  --orange: #F97316;
+  --orange-dark: #EA580C;
+  --gray-bg: #F8FAFC;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Signature hero glow ---------- */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-glow::before,
+.hero-glow::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.35;
+  animation: glowPulse 8s ease-in-out infinite;
+}
+
+.hero-glow::before {
+  width: 480px;
+  height: 480px;
+  background: var(--blue);
+  top: -120px;
+  right: -80px;
+}
+
+.hero-glow::after {
+  width: 360px;
+  height: 360px;
+  background: var(--orange);
+  bottom: -100px;
+  right: 220px;
+  animation-delay: 2.5s;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: scale(1) translateY(0); opacity: 0.30; }
+  50% { transform: scale(1.15) translateY(-20px); opacity: 0.45; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow::before,
+  .hero-glow::after,
+  .float-slow,
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.float-slow {
+  animation: floatY 5s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+/* ---------- Product mockup device shape ---------- */
+.device-mockup {
+  background: linear-gradient(155deg, #1E293B 0%, #0F172A 55%, #1E3A8A 100%);
+  box-shadow: 0 40px 80px -20px rgba(15, 23, 42, 0.45),
+              0 0 0 1px rgba(255,255,255,0.06) inset;
+}
+
+/* ---------- Card hover lift ---------- */
+.lift-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.lift-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.18);
+}
+
+/* ---------- Quick view overlay ---------- */
+.quick-view {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.product-card:hover .quick-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Category icon tile ---------- */
+.cat-icon-tile {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.cat-card:hover .cat-icon-tile {
+  transform: rotate(-6deg) scale(1.08);
+}
+
+/* ---------- Button micro-interaction ---------- */
+.btn-primary {
+  background-color: var(--blue);
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+.btn-primary:hover {
+  background-color: var(--blue-dark);
+  transform: translateY(-2px);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-accent {
+  background-color: var(--orange);
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+.btn-accent:hover {
+  background-color: var(--orange-dark);
+  transform: translateY(-2px);
+}
+
+/* ---------- Star rating ---------- */
+.star-filled { color: var(--orange); }
+.star-empty { color: #E2E8F0; }
+
+/* ---------- Nav underline animation ---------- */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--blue);
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ---------- Cart badge pulse on update ---------- */
+.badge-pulse {
+  animation: badgePop 0.35s ease;
+}
+@keyframes badgePop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- Mobile menu slide ---------- */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+#mobile-menu.open {
+  max-height: 480px;
+}
+
+/* ---------- Toast ---------- */
+#toast {
+  transform: translateY(120%);
+  transition: transform 0.3s ease;
+}
+#toast.show {
+  transform: translateY(0);
+}
+
+/* ---------- Focus visibility for accessibility ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* ---------- Quantity stepper ---------- */
+.qty-btn {
+  transition: background-color 0.15s ease;
+}
+.qty-btn:hover {
+  background-color: #F1F5F9;
+}
+
+/* ---------- Section fade-in on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
